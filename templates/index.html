@@ -2,49 +2,59 @@
 <html>
 <head>
   <title>Bridge Crossing Puzzle</title>
-  <script src="/static/bridge.js" defer></script>
+  <script src="/static/bridge-classic.js" defer></script>
   <style>
     body {
+      background-color: #1e1e1e;
+      color: #fff;
       font-family: sans-serif;
       text-align: center;
-      background-color: #eef2f7;
     }
-
-    #game-canvas {
-      border: 2px solid #333;
-      background: linear-gradient(to top, #444 50%, #88cdee 50%);
+    canvas {
       display: block;
       margin: 20px auto;
+      border: 2px solid #fff;
+      background-color: #111;
     }
-
+    .animals {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .animal {
+      margin: 5px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: border 0.2s;
+    }
+    .animal.selected {
+      border-color: yellow;
+    }
     button {
       font-size: 16px;
       padding: 10px 20px;
       margin: 10px;
-      border-radius: 8px;
+      border-radius: 6px;
       border: none;
-      background-color: #1976d2;
+      background-color: #4caf50;
       color: white;
       cursor: pointer;
     }
-
-    button:hover {
-      background-color: #1256a3;
-    }
-
     button:disabled {
-      background-color: #aaa;
+      background-color: #777;
     }
   </style>
 </head>
 <body>
-  <h1>Bridge Crossing Puzzle</h1>
-  <p>Help the animals cross the bridge in the least amount of time!</p>
-  <label>Name: <input type="text" id="playerName" /></label><br><br>
-  <canvas id="game-canvas" width="800" height="300"></canvas>
-  <br>
+  <h1>Bridge Crossing Puzzle (Classic)</h1>
+  <p>Select 1 or 2 animals to cross. Torch must be carried!</p>
+  <label>Name: <input type="text" id="playerName" /></label>
+  <div class="animals" id="animalSelectors"></div>
+  <button onclick="sendAnimals()" id="sendBtn">Send</button>
+  <canvas id="gameCanvas" width="900" height="300"></canvas>
+  <p>Time: <span id="timer">0</span> seconds</p>
   <button onclick="startGame()">Start Game</button>
   <button onclick="submitScore()" id="submitBtn" disabled>Submit Score</button>
-  <p>Time: <span id="timer">0</span> seconds</p>
 </body>
 </html>
