@@ -1,60 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bridge Crossing Puzzle</title>
-  <script src="/static/bridge-classic.js" defer></script>
+  <title>Bridge Puzzle - Enhanced</title>
+  <script src="/static/enhanced-bridge.js" defer></script>
   <style>
     body {
-      background-color: #1e1e1e;
-      color: #fff;
+      background-color: #141414;
+      color: white;
       font-family: sans-serif;
       text-align: center;
     }
     canvas {
       display: block;
       margin: 20px auto;
-      border: 2px solid #fff;
-      background-color: #111;
+      border: 2px solid #ccc;
+      background-color: #000;
     }
-    .animals {
+    .control-panel {
+      margin: 10px auto;
+    }
+    .animal-select {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 10px;
+      gap: 8px;
     }
-    .animal {
-      margin: 5px;
-      border: 2px solid transparent;
+    .animal-select img {
+      width: 60px;
       cursor: pointer;
-      transition: border 0.2s;
+      border: 2px solid transparent;
+      border-radius: 8px;
     }
-    .animal.selected {
+    .animal-select img.selected {
       border-color: yellow;
     }
     button {
-      font-size: 16px;
       padding: 10px 20px;
-      margin: 10px;
-      border-radius: 6px;
+      margin: 8px;
+      font-size: 16px;
       border: none;
-      background-color: #4caf50;
+      border-radius: 6px;
+      background-color: #2196F3;
       color: white;
       cursor: pointer;
     }
     button:disabled {
-      background-color: #777;
+      background-color: #555;
     }
   </style>
 </head>
 <body>
-  <h1>Bridge Crossing Puzzle (Classic)</h1>
-  <p>Select 1 or 2 animals to cross. Torch must be carried!</p>
-  <label>Name: <input type="text" id="playerName" /></label>
-  <div class="animals" id="animalSelectors"></div>
-  <button onclick="sendAnimals()" id="sendBtn">Send</button>
-  <canvas id="gameCanvas" width="900" height="300"></canvas>
+  <h1>Bridge Crossing Puzzle - Enhanced</h1>
+  <p>Choose animals to cross the bridge. Only 2 at a time, and the torch must go!</p>
+  <label>Name: <input type="text" id="playerName"></label>
+  <div class="animal-select" id="animalSelectors"></div>
+  <button onclick="sendAnimals()">Send</button>
+  <canvas id="gameCanvas" width="1000" height="400"></canvas>
   <p>Time: <span id="timer">0</span> seconds</p>
   <button onclick="startGame()">Start Game</button>
   <button onclick="submitScore()" id="submitBtn" disabled>Submit Score</button>
+  <button onclick="resetGame()">Reset Game</button>
 </body>
 </html>
