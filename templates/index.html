@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bridge Crossing Puzzle</title>
+  <script src="/static/bridge.js" defer></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #eef2f7;
+    }
+
+    #game-canvas {
+      border: 2px solid #333;
+      background: linear-gradient(to top, #444 50%, #88cdee 50%);
+      display: block;
+      margin: 20px auto;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+      background-color: #1976d2;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1256a3;
+    }
+
+    button:disabled {
+      background-color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bridge Crossing Puzzle</h1>
+  <p>Help the animals cross the bridge in the least amount of time!</p>
+  <label>Name: <input type="text" id="playerName" /></label><br><br>
+  <canvas id="game-canvas" width="800" height="300"></canvas>
+  <br>
+  <button onclick="startGame()">Start Game</button>
+  <button onclick="submitScore()" id="submitBtn" disabled>Submit Score</button>
+  <p>Time: <span id="timer">0</span> seconds</p>
+</body>
+</html>
