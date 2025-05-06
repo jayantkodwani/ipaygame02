@@ -75,6 +75,7 @@ function toggleAnimal(id) {
 }
 
 function startGame() {
+  console.log('Game started');
   canvas = document.getElementById("gameCanvas");
   ctx = canvas.getContext("2d");
   sprites = loadSprites();
@@ -86,6 +87,7 @@ function startGame() {
   document.getElementById("submitBtn").disabled = true;
   document.getElementById("timer").innerText = "0";
   setupSelectors();
+  drawScene();
 
   if (timerInterval) clearInterval(timerInterval);
   startTime = Date.now();
